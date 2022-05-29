@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Board
   attr_reader :rows, :cols
 
   def initialize(rows, cols)
-    raise "Invalid rows" if rows < 1
-    raise "Invalid cols" if cols < 1
+    raise 'Invalid rows' if rows < 1
+    raise 'Invalid cols' if cols < 1
 
     @rows = rows
     @cols = cols
@@ -14,9 +16,9 @@ class Board
   end
 
   def get(row, col)
-    raise "Invalid row" if row < 0 || row >= rows
-    raise "Invalid col" if col < 0 || col >= cols
-    
+    raise 'Invalid row' if row.negative? || row >= rows
+    raise 'Invalid col' if col.negative? || col >= cols
+
     board[row][col]
   end
 

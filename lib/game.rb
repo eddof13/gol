@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require_relative 'rules'
 require_relative 'cell'
 require_relative 'board'
 
 class Game
-  CELL_TYPES = [Cell::Alive, Cell::Dead]
-  RULES = [Rules::ExactlyThreeNeighbors, Rules::ExactlyTwoNeighborsAndAlive]
+  CELL_TYPES = [Cell::Alive, Cell::Dead].freeze
+  RULES = [Rules::ExactlyThreeNeighbors, Rules::ExactlyTwoNeighborsAndAlive].freeze
 
   def generate_seed(rows, cols)
     @board = Board.new(rows, cols)
@@ -12,15 +14,15 @@ class Game
       (0...cols).each do |col|
         board.set(row, col, CELL_TYPES.sample)
       end
-    end 
+    end
   end
-  
+
   def load_seed(path)
-    # todo: implement starting seed option
+    # TODO: implement starting seed option
   end
 
   def start(generations)
-    raise "Game not initialized" if board.nil?
+    raise 'Game not initialized' if board.nil?
 
     (0..generations).each do |gen|
       draw(gen)

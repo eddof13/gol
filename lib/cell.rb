@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Cell
   class Alive
     class << self
       def to_s
-        "A"
+        'A'
       end
     end
   end
@@ -10,7 +12,7 @@ module Cell
   class Dead
     class << self
       def to_s
-        "d"
+        'd'
       end
     end
   end
